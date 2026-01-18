@@ -1,0 +1,613 @@
+@import "tailwindcss";
+
+/* =========================================================
+   ForgeAuth Theme Tokens (Logo-matched)
+========================================================= */
+:root{
+  --bg: 255 255 255;
+  --fg: 17 24 39;            /* slate-900 */
+  --card: 255 255 255;
+  --border: 229 231 235;     /* gray-200 */
+
+  /* BRAND */
+  --primary: 95 220 241;     /* #5FDCF1 */
+  --primary2: 18 167 208;    /* #12A7D0 */
+  --secondary: 93 48 79;     /* #5D304F */
+  --secondary2: 69 32 53;    /* #452035 */
+  --muted: 165 111 142;      /* #A56F8E */
+}
+
+.dark{
+  --bg: 3 7 18;              /* slate-950 */
+  --fg: 226 232 240;         /* slate-200 */
+  --card: 15 23 42;          /* slate-900 */
+  --border: 51 65 85;        /* slate-700 */
+
+  --primary: 95 220 241;
+  --primary2: 18 167 208;
+  --secondary: 165 111 142;  /* softened for dark */
+  --secondary2: 93 48 79;
+  --muted: 148 163 184;      /* slate-400 */
+}
+
+/* =========================================================
+   Component classes
+========================================================= */
+@layer components {
+
+  .fa-page {
+    @apply min-h-screen bg-[rgb(var(--bg))] text-[rgb(var(--fg))];
+  }
+
+  .fa-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .fa-card {
+  @apply rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))]
+  shadow-[0_10px_30px_rgba(0,0,0,0.12)] dark:shadow-[0_18px_50px_rgba(0,0,0,0.45)];
+}
+
+
+
+  .fa-label {
+    @apply mb-1 block text-sm font-medium text-[rgb(var(--fg))];
+  }
+
+  .fa-input {
+    @apply w-full rounded-xl border border-[rgb(var(--border))] bg-transparent px-4 py-3
+    text-[rgb(var(--fg))] placeholder:text-[rgb(var(--muted))]
+    focus:outline-none focus:ring-4 focus:ring-[rgb(var(--primary)/0.30)] focus:border-transparent;
+  }
+
+  .fa-input-error {
+    @apply border-red-500 focus:ring-red-500/20;
+  }
+
+  .fa-help {
+    @apply mt-1 text-xs text-[rgb(var(--muted))];
+  }
+
+  .fa-error {
+    @apply mt-1 text-xs text-red-600;
+  }
+
+  
+ .fa-btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold
+  transition focus:outline-none focus:ring-4
+  bg-[rgb(var(--primary))] text-slate-900 hover:bg-[rgb(var(--primary2))]
+  focus:ring-[rgb(var(--primary)/0.35)];
+}
+
+
+.fa-btn-secondary {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold
+  transition focus:outline-none focus:ring-4
+  bg-[rgb(var(--secondary))] text-white hover:bg-[rgb(var(--secondary2))]
+  focus:ring-[rgb(var(--secondary)/0.35)];
+}
+
+.fa-btn-ghost {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold
+  transition focus:outline-none focus:ring-4
+  border border-[rgb(var(--border))] bg-transparent text-[rgb(var(--fg))]
+  hover:bg-black/5 dark:hover:bg-white/5
+  focus:ring-black/10 dark:focus:ring-white/10;
+}
+
+
+
+  .fa-link {
+    @apply font-semibold text-[rgb(var(--secondary))] hover:text-[rgb(var(--secondary2))];
+  }
+
+  .fa-divider {
+    @apply my-6 flex items-center gap-3 text-xs text-[rgb(var(--muted))];
+  }
+
+  .fa-divider:before,
+  .fa-divider:after {
+    content: "";
+    @apply h-px flex-1 bg-[rgb(var(--border))];
+  }
+
+  .fa-alert-error {
+    @apply rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700;
+  }
+
+  .fa-alert-success {
+    @apply rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700;
+  }
+}
+
+/* =========================================================
+   Badge / Lanyard (ForgeBadge style)
+   Tailwind v4-safe: pure CSS (no @apply chaining)
+========================================================= */
+
+.fa-badge-stage{
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+/* Background blobs */
+.fa-blob{
+  position:absolute;
+  width: 260px;
+  height: 260px;
+  opacity: .18;
+  border-radius: 9999px;
+  z-index: 0;
+  filter: blur(22px);
+  mix-blend-mode: screen;
+}
+.fa-blob.blob-1{ left: 6%; top: 12%; background: rgb(var(--secondary)); }
+.fa-blob.blob-2{ right: 8%; top: 16%; background: rgb(var(--primary2)); }
+.fa-blob.blob-3{ left: 10%; bottom: 12%; background: rgb(var(--primary)); }
+.fa-blob.blob-4{ right: 10%; bottom: 12%; background: rgb(var(--muted)); }
+
+
+/* Badge wrapper */
+.fa-badge-wrap{
+  position: relative;
+  z-index: 1;
+  width: min(285px, 92vw);   /* slimmer like #2 */
+}
+
+
+
+
+
+/* Lanyard container */
+.fa-lanyard{
+  position: absolute;
+  top: -245px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 220px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 0;
+}
+
+
+/* Two straps */
+.fa-lanyard .strap{
+  width: 22px;
+  height: 220px;
+  background: linear-gradient(to bottom, rgba(93,48,79,.95) 0%, rgba(95,220,241,.85) 100%);
+  border-radius: 5px;
+  position: relative;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.10), 0 14px 30px rgba(0,0,0,.35);
+}
+
+.fa-lanyard .strap.left{
+  transform: rotate(-5deg);
+  transform-origin: bottom right;
+  margin-right: -2px;
+}
+.fa-lanyard .strap.right{
+  transform: rotate(5deg);
+  transform-origin: bottom left;
+  margin-left: -2px;
+}
+
+/* Strap stitching */
+.fa-lanyard .strap::after{
+  content:"";
+  position:absolute;
+  top: 5px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: rgba(255,255,255,.22);
+  border-radius: 999px;
+}
+
+/* Clip top piece */
+.fa-clip-top{
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 34px;
+  background: #2f2f33;
+  border-radius: 10px;
+  z-index: 3;
+  box-shadow: 0 10px 22px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.fa-clip-top::after{
+  content:"";
+  position:absolute;
+  left: 10px;
+  right: 10px;
+  top: 8px;
+  height: 10px;
+  background: rgba(255,255,255,.08);
+  border-radius: 7px;
+}
+
+/* Clip hole shape (polygon) */
+.fa-clip-hole{
+  position: absolute;
+  bottom: -46px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 30px;
+  background: #3a3a3f;
+  z-index: 2;
+  clip-path: polygon(12% 0%, 88% 0%, 98% 100%, 2% 100%);
+  box-shadow: 0 10px 18px rgba(0,0,0,.35);
+}
+.fa-clip-hole::after{
+  content:"";
+  position:absolute;
+  inset: 0;
+  border: 2px solid rgba(100,100,100,.35);
+  border-bottom: none;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  box-sizing: border-box;
+}
+
+/* Badge holder frame */
+..fa-badge-holder{
+  position: relative;
+  padding: 14px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 22px 70px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.10);
+}
+.fa-badge-holder::before{
+  content:"";
+  position:absolute;
+  inset: 6px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.08);
+  pointer-events:none;
+}
+
+
+/* Badge card */
+.fa-badge-card{
+  position: relative;
+  border-radius: 18px;
+  padding: 26px 22px 22px;
+  background:
+    radial-gradient(120% 100% at 10% 0%, rgba(95,220,241,.18) 0%, rgba(0,0,0,0) 55%),
+    radial-gradient(120% 100% at 90% 100%, rgba(93,48,79,.24) 0%, rgba(0,0,0,0) 58%),
+    linear-gradient(180deg, rgba(17,24,39,.55), rgba(69,32,53,.55));
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.18);
+}
+
+
+/* Top icon bubble */
+.fa-badge-icon{
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 14px;
+  border-radius: 9999px;
+  display:grid;
+  place-items:center;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 12px 22px rgba(0,0,0,.25);
+}
+.fa-lanyard{ top: -210px; }
+/* =========================================================
+   Badge Theme Overrides (more attractive, closer to preview)
+========================================================= */
+.fa-badge-theme .fa-badge-stage{
+  background:
+    radial-gradient(1100px 520px at 50% 35%, rgba(95,220,241,.10), rgba(0,0,0,0) 65%),
+    radial-gradient(900px 500px at 50% 80%, rgba(93,48,79,.18), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, #2b1842 0%, #241238 45%, #151a2a 100%);
+}
+
+/* Solid organic blobs like your rejected preview */
+.fa-badge-theme .fa-blob{
+  width: 200px;
+  height: 200px;
+  opacity: .92;
+  filter: blur(0);
+  border-radius: 9999px; /* circles like #2 */
+  mix-blend-mode: normal;
+  box-shadow: 0 30px 70px rgba(0,0,0,.45);
+}
+
+.fa-badge-theme .fa-blob.blob-1{ width: 210px; height: 210px; }
+.fa-badge-theme .fa-blob.blob-2{ width: 140px; height: 140px; }
+.fa-badge-theme .fa-blob.blob-3{ width: 180px; height: 180px; }
+.fa-badge-theme .fa-blob.blob-4{ width: 190px; height: 190px; }
+
+
+/* Lanyard: cleaner + realistic */
+.fa-badge-theme .fa-lanyard{ top: -255px; width: 92px; height: 230px; }
+.fa-badge-theme .fa-lanyard .strap{
+  height: 230px;
+  background: linear-gradient(to bottom, rgba(95,220,241,.95) 0%, rgba(93,48,79,.85) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 18px 40px rgba(0,0,0,.45);
+}
+.fa-badge-theme .fa-clip-top{
+  background: #2c2c31;
+  box-shadow: 0 12px 28px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.10);
+}
+
+/* Badge holder: real plastic frame + bottom cyan accent like preview */
+.fa-badge-theme .fa-badge-holder{
+  position: relative;
+  padding: 4px;                 /* thin frame */
+  border-radius: 16px;
+  background: rgba(0,0,0,.10);
+  backdrop-filter: blur(10px);
+
+  /* soft, tight shadow like your reference */
+  box-shadow:
+    0 22px 55px rgba(0,0,0,.55),
+    inset 0 0 0 1px rgba(255,255,255,.10);
+	outline: 2px solid rgba(255,255,255,.06);
+  outline-offset: 6px;
+}
+
+
+
+
+.fa-badge-theme .fa-badge-holder::before{
+  content:"";
+  position:absolute;
+  inset: 3px;                   /* tight spacing */
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  pointer-events:none;
+}
+
+
+
+
+.fa-badge-theme .fa-badge-holder::after{
+  content:"";
+  position:absolute;
+  left: 12px; right: 12px;
+  bottom: 6px;
+  height: 2px;                  /* was 4px */
+  border-radius: 999px;
+  background: rgba(95,220,241,.85);
+}
+
+
+
+/* Inner card: simpler + cleaner (closer to your preview) */
+.fa-badge-theme .fa-badge-card{
+  position: relative;
+  padding: 16px 12px 12px;
+  border-radius: 10px;
+
+  background: rgba(125, 78, 132, .52);
+  border: 1px solid rgba(255,255,255,.08);
+
+  /* keeps it crisp and not “fat” */
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.14);
+}
+
+
+
+
+
+/* Small “plastic glare” highlight */
+.fa-badge-theme .fa-badge-card::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(110deg, rgba(255,255,255,.14), rgba(255,255,255,0) 45%);
+  opacity: .35;
+  pointer-events:none;
+}
+
+/* Inputs: more crisp */
+.fa-badge-theme .fa-input{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
+}
+.fa-badge-theme .fa-input::placeholder{ color: rgba(255,255,255,.55); }
+/* =========================================================
+   Floating bubbles (Badge page)
+========================================================= */
+@keyframes fa-float {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(0, -14px, 0) scale(1.01); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes fa-drift {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(10px, -6px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* Apply floating only on the badge theme page */
+.fa-badge-theme .fa-blob{
+  animation: fa-float 7.5s ease-in-out infinite;
+  will-change: transform;
+}
+.fa-badge-theme .fa-blob.blob-1{ animation-duration: 8.5s; }
+.fa-badge-theme .fa-blob.blob-2{ animation-duration: 7.2s; animation-name: fa-drift; }
+.fa-badge-theme .fa-blob.blob-3{ animation-duration: 9.2s; }
+.fa-badge-theme .fa-blob.blob-4{ animation-duration: 7.8s; animation-name: fa-drift; }
+/* =========================================================
+   Theme toggle button (premium)
+========================================================= */
+.fa-theme-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.20);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.35);
+  color: rgba(255,255,255,.88);
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.fa-theme-btn:hover{ background: rgba(0,0,0,.28); border-color: rgba(255,255,255,.18); }
+.fa-theme-btn:active{ transform: scale(.99); }
+.fa-theme-btn svg{ opacity: .9; }
+/* Theme modes via body[data-theme="..."] */
+body[data-theme="light"] { /* default */
+  /* keep your current light variables (no changes needed if :root is light) */
+}
+
+body[data-theme="dark"]{
+  /* if you already use .dark, keep it — this is just an option */
+}
+
+body[data-theme="badge"]{
+  /* The badge theme is visually strong; keep inputs readable */
+}
+/* ===== Pro polish: plastic glare + cleaner contrast ===== */
+.fa-badge-theme .fa-badge-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  background:
+    radial-gradient(120% 60% at 20% 0%, rgba(255,255,255,.16), rgba(255,255,255,0) 55%),
+    linear-gradient(115deg, rgba(255,255,255,.08), rgba(255,255,255,0) 42%);
+  opacity: .55;
+  pointer-events:none;
+}
+
+.fa-badge-theme .fa-badge-card::after{
+  content:"";
+  position:absolute;
+  inset: 1px;
+  border-radius: inherit;
+  border: 1px solid rgba(255,255,255,.06);
+  pointer-events:none;
+}
+
+/* Inputs: crisp and premium */
+.fa-badge-theme .fa-input{
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
+}
+.fa-badge-theme .fa-input:focus{
+  outline: none;
+  border-color: rgba(95,220,241,.45);
+  box-shadow: 0 0 0 6px rgba(95,220,241,.14);
+}
+.fa-badge-theme .fa-label{
+  color: rgba(255,255,255,.85);
+  letter-spacing: .2px;
+}
+
+/* Links */
+.fa-badge-theme .fa-link{
+  color: rgba(255,255,255,.78);
+}
+.fa-badge-theme .fa-link:hover{
+  color: rgba(95,220,241,.92);
+}
+/* Prevent icon jitter on click */
+[data-toggle-password] svg {
+  transition: opacity .15s ease;
+}
+/* =========================================================
+   Demo page utilities (theme-safe)
+========================================================= */
+.fa-demo-text { color: rgb(var(--fg)); }
+.fa-demo-muted { color: rgb(var(--muted)); }
+
+.fa-demo-surface{
+  border: 1px solid rgb(var(--border));
+  background: rgb(var(--card));
+  box-shadow: 0 30px 100px rgba(0,0,0,.18);
+}
+
+.fa-demo-chip{
+  border: 1px solid rgb(var(--border));
+  background: rgba(255,255,255,.04);
+}
+
+body[data-theme="light"] .fa-demo-chip{
+  background: rgba(0,0,0,.03);
+}
+
+.fa-demo-card{
+  border: 1px solid rgb(var(--border));
+  background: rgba(255,255,255,.03);
+}
+body[data-theme="light"] .fa-demo-card{
+  background: rgba(0,0,0,.02);
+}
+
+.fa-demo-link{
+  color: rgb(var(--secondary));
+}
+.fa-demo-link:hover{
+  color: rgb(var(--secondary2));
+}
+/* =========================================================
+   Demo page (index.html) – Theme safe styles
+   Works in: light / dark / badge
+========================================================= */
+.fa-demo-text { color: rgb(var(--fg)); }
+.fa-demo-muted { color: rgb(var(--muted)); }
+
+.fa-demo-surface{
+  border: 1px solid rgb(var(--border));
+  background: rgb(var(--card));
+  box-shadow: 0 30px 100px rgba(0,0,0,.18);
+}
+
+.fa-demo-chip{
+  border: 1px solid rgb(var(--border));
+  background: rgba(255,255,255,.04);
+}
+
+body[data-theme="light"] .fa-demo-chip{
+  background: rgba(0,0,0,.03);
+}
+
+.fa-demo-card{
+  border: 1px solid rgb(var(--border));
+  background: rgba(255,255,255,.03);
+}
+
+body[data-theme="light"] .fa-demo-card{
+  background: rgba(0,0,0,.02);
+}
+
+/* Light theme needs softer depth */
+body[data-theme="light"] .fa-demo-surface{
+  box-shadow: 0 30px 90px rgba(0,0,0,.10);
+}
+body[data-theme="light"] .fa-demo-card{
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+.fa-demo-link{
+  color: rgb(var(--secondary));
+  font-weight: 600;
+}
+.fa-demo-link:hover{
+  color: rgb(var(--secondary2));
+}
+
+
+
+

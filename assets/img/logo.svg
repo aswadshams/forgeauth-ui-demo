@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ForgeAuth Logo">
+  <!-- Background -->
+  <rect width="64" height="64" rx="16" fill="#452035"/>
+
+  <!-- Shield -->
+  <path
+    d="M32 10
+       C38 14 46 14 52 14
+       V30
+       C52 42 44 50 32 54
+       C20 50 12 42 12 30
+       V14
+       C18 14 26 14 32 10Z"
+    fill="#5FDCF1"/>
+
+  <!-- Keyhole -->
+  <circle cx="32" cy="30" r="5" fill="#452035"/>
+  <rect x="30.5" y="35" width="3" height="9" rx="1.5" fill="#452035"/>
+</svg>

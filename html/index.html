@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ForgeAuth UI Kit – Demo</title>
+
+    <link rel="stylesheet" href="../assets/css/app.css" />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+</head>
+
+<body class="fa-page min-h-screen fa-demo-text">
+    <!-- Top Bar -->
+    <header class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 pt-6">
+        <div class="flex items-center justify-between">
+            <!-- Brand -->
+            <div class="flex items-center gap-3">
+                <div class="h-11 w-11 rounded-xl bg-gradient-to-br
+                    from-[rgb(93,48,79)] to-[rgb(18,167,208)]
+                    grid place-items-center shadow-md">
+                    <img src="../assets/img/logo.svg" alt="ForgeAuth" class="h-6 w-6" />
+                </div>
+
+                <div class="leading-tight">
+                    <div class="text-sm font-semibold">
+                        ForgeAuth UI Kit
+                    </div>
+                    <div class="text-xs fa-demo-muted">
+                        Badge-style Auth Screens • Tailwind CSS
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                <button type="button" class="fa-theme-btn" data-theme-toggle aria-label="Toggle theme">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M21 12.8A8.4 8.4 0 0 1 11.2 3a7 7 0 1 0 9.8 9.8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    Theme
+                </button>
+
+                <a class="fa-demo-link text-sm" href="../documentation/index.html">Docs</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Hero -->
+        <section class="rounded-3xl backdrop-blur-xl p-6 sm:p-8 fa-demo-surface">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Left -->
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs fa-demo-chip fa-demo-muted">
+                        <span class="h-2 w-2 rounded-full bg-[rgb(var(--primary))]"></span> Multi-theme • Clean components • No frameworks
+                    </div>
+
+                    <h1 class="mt-4 text-2xl sm:text-3xl font-extrabold tracking-tight">
+            ForgeAuth UI Kit
+          </h1>
+
+                    <p class="mt-2 text-sm sm:text-base fa-demo-muted leading-relaxed max-w-xl">
+                        A modern set of authentication screens built with Tailwind CSS, featuring a unique badge-style login, responsive layouts, and a smooth theme toggle.
+                    </p>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="./login-02-badge.html" class="inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold text-white
+                      bg-[linear-gradient(90deg,rgba(93,48,79,.92),rgba(18,167,208,.96))]
+                      shadow-[0_14px_32px_rgba(0,0,0,.20)] hover:brightness-[1.05] active:scale-[0.99]">
+              Open Badge Login (Featured)
+            </a>
+
+                        <a href="./login-01.html" class="inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold
+                      border border-[rgb(var(--border))] bg-transparent hover:bg-black/5 dark:hover:bg-white/5">
+              Open Classic Login
+            </a>
+                    </div>
+
+                    <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="rounded-2xl p-4 fa-demo-card">
+                            <div class="text-sm font-semibold">3 Themes</div>
+                            <div class="mt-1 text-xs fa-demo-muted">Light • Dark • Badge</div>
+                        </div>
+                        <div class="rounded-2xl p-4 fa-demo-card">
+                            <div class="text-sm font-semibold">Responsive</div>
+                            <div class="mt-1 text-xs fa-demo-muted">Desktop • Tablet • Mobile</div>
+                        </div>
+                        <div class="rounded-2xl p-4 fa-demo-card">
+                            <div class="text-sm font-semibold">Easy Customize</div>
+                            <div class="mt-1 text-xs fa-demo-muted">Variables + Utility classes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right -->
+                <div class="lg:col-span-5">
+                    <div class="rounded-3xl p-6 fa-demo-card">
+                        <div class="text-xs fa-demo-muted">Featured</div>
+                        <div class="mt-2 text-base font-semibold">Badge-Style Login</div>
+                        <p class="mt-1 text-sm fa-demo-muted">
+                            A standout auth layout that looks premium in product previews and demos.
+                        </p>
+
+                        <div class="mt-5 grid grid-cols-2 gap-3">
+                            <a href="./login-02-badge.html" class="rounded-2xl p-4 fa-demo-card">
+                                <div class="text-sm font-semibold">Login</div>
+                                <div class="mt-1 text-xs fa-demo-muted">Badge layout</div>
+                            </a>
+
+                            <a href="./verify-email.html" class="rounded-2xl p-4 fa-demo-card">
+                                <div class="text-sm font-semibold">Verify</div>
+                                <div class="mt-1 text-xs fa-demo-muted">OTP / Email</div>
+                            </a>
+
+                            <a href="./reset-01.html" class="rounded-2xl p-4 fa-demo-card">
+                                <div class="text-sm font-semibold">Reset</div>
+                                <div class="mt-1 text-xs fa-demo-muted">Password reset</div>
+                            </a>
+
+                            <a href="./locked.html" class="rounded-2xl p-4 fa-demo-card">
+                                <div class="text-sm font-semibold">States</div>
+                                <div class="mt-1 text-xs fa-demo-muted">Locked / Error</div>
+                            </a>
+                        </div>
+
+                        <div class="mt-5 text-xs fa-demo-muted">
+                            Tip: Use the <span class="font-semibold">Theme</span> button to preview all themes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screens -->
+        <section class="mt-10">
+            <div>
+                <h2 class="text-lg font-bold">Screens</h2>
+                <p class="mt-1 text-sm fa-demo-muted">Open each page to review layout, theme support, and interactions.</p>
+            </div>
+
+            <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="./login-01.html" class="rounded-3xl p-5 fa-demo-card hover:bg-black/5 dark:hover:bg-white/5">
+                    <div class="text-xs fa-demo-muted">Login</div>
+                    <div class="mt-1 text-base font-semibold">Login 01 – Classic</div>
+                    <div class="mt-2 text-sm fa-demo-muted">Clean, minimal sign-in form.</div>
+                </a>
+
+                <a href="./login-02-badge.html" class="rounded-3xl p-5 fa-demo-card hover:bg-black/5 dark:hover:bg-white/5">
+                    <div class="text-xs fa-demo-muted">Login</div>
+                    <div class="mt-1 text-base font-semibold">Login 02 – Badge</div>
+                    <div class="mt-2 text-sm fa-demo-muted">Signature badge + lanyard layout.</div>
+                </a>
+
+                <a href="./reset-01.html" class="rounded-3xl p-5 fa-demo-card hover:bg-black/5 dark:hover:bg-white/5">
+                    <div class="text-xs fa-demo-muted">Recovery</div>
+                    <div class="mt-1 text-base font-semibold">Reset Password</div>
+                    <div class="mt-2 text-sm fa-demo-muted">Request + reset UI flow.</div>
+                </a>
+
+                <a href="./verify-email.html" class="rounded-3xl p-5 fa-demo-card hover:bg-black/5 dark:hover:bg-white/5">
+                    <div class="text-xs fa-demo-muted">Verification</div>
+                    <div class="mt-1 text-base font-semibold">Verify Email</div>
+                    <div class="mt-2 text-sm fa-demo-muted">Email verify screen.</div>
+                </a>
+
+                <a href="./otp.html" class="rounded-3xl p-5 fa-demo-card hover:bg-black/5 dark:hover:bg-white/5">
+                    <div class="text-xs fa-demo-muted">Verification</div>
+                    <div class="mt-1 text-base font-semibold">OTP</div>
+                    <div class="mt-2 text-sm fa-demo-muted">One-time passcode UI.</div>
+                </a>
+
+                <a href="./success.html" class="rounded-3xl p-5 fa-demo-card hover:bg-black/5 dark:hover:bg-white/5">
+                    <div class="text-xs fa-demo-muted">State</div>
+                    <div class="mt-1 text-base font-semibold">Success</div>
+                    <div class="mt-2 text-sm fa-demo-muted">Success confirmation screen.</div>
+                </a>
+
+                <a href="./error.html" class="rounded-3xl p-5 fa-demo-card hover:bg-black/5 dark:hover:bg-white/5">
+                    <div class="text-xs fa-demo-muted">State</div>
+                    <div class="mt-1 text-base font-semibold">Error</div>
+                    <div class="mt-2 text-sm fa-demo-muted">Error message screen.</div>
+                </a>
+
+                <a href="./locked.html" class="rounded-3xl p-5 fa-demo-card hover:bg-black/5 dark:hover:bg-white/5">
+                    <div class="text-xs fa-demo-muted">State</div>
+                    <div class="mt-1 text-base font-semibold">Locked</div>
+                    <div class="mt-2 text-sm fa-demo-muted">Locked/blocked state screen.</div>
+                </a>
+            </div>
+
+            <div class="mt-4 text-xs fa-demo-muted">
+                If a link doesn’t open, check the filename in your <code class="px-2 py-0.5 rounded bg-black/5 dark:bg-white/10">html/</code> folder and update it here.
+            </div>
+        </section>
+
+        <footer class="mt-10 pb-10 text-xs fa-demo-muted flex items-center justify-between">
+            <span>© ForgeAuth UI Kit</span>
+            <span>Built with Tailwind CSS • Demo Hub</span>
+        </footer>
+    </main>
+
+    <script src="../assets/js/app.js"></script>
+</body>
+
+</html>

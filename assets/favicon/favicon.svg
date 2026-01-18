@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="56" fill="#452035"></rect>
+  <!-- Shield -->
+  <path d="M128 44c30 18 58 18 82 18v62c0 56-34 89-82 104C80 213 46 180 46 124V62c24 0 52 0 82-18z" fill="#5FDCF1"></path>
+  <!-- Keyhole -->
+  <path d="M128 108a18 18 0 0 0-8 34v28a8 8 0 0 0 16 0v-28a18 18 0 0 0-8-34z" fill="#452035"></path>
+</svg>

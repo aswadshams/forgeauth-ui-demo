@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ForgeAuth – Login</title>
+
+  <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="../assets/css/app.css" />
+  <script defer src="../assets/js/app.js"></script>
+</head>
+
+<body class="fa-page">
+  <main class="fa-container py-10">
+    <div class="mx-auto max-w-md">
+
+      <!-- Header -->
+      <div class="mb-6 flex items-center gap-3">
+        <div class="h-11 w-11 rounded-2xl bg-[rgb(var(--secondary2))] grid place-items-center">
+          <img src="../assets/img/logo.svg" alt="Logo" class="h-6 w-6" />
+        </div>
+        <div>
+          <h1 class="text-xl font-bold">Welcome back</h1>
+          <p class="text-sm text-[rgb(var(--muted))]">Sign in to continue to your dashboard</p>
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="fa-card p-6">
+        <!-- Example error (toggle on/off as needed) -->
+        <!-- <div class="fa-alert-error mb-4" role="alert" aria-live="polite">
+          Invalid username or password. Please try again.
+        </div> -->
+
+        <form action="#" method="post" class="space-y-4">
+          <div>
+            <label class="fa-label" for="email">Email</label>
+            <input id="email" type="email" class="fa-input" placeholder="you@example.com" autocomplete="username" required />
+            <p class="fa-help">Use your work email if available.</p>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <label class="fa-label" for="password">Password</label>
+              <a href="forgot-01.html" class="text-sm fa-link">Forgot?</a>
+            </div>
+
+            <div class="relative">
+              <input id="password" type="password" class="fa-input pr-20" placeholder="••••••••" autocomplete="current-password" required />
+              <button type="button"
+                class="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg px-3 py-1 text-sm font-semibold
+                text-[rgb(var(--secondary))] hover:text-[rgb(var(--secondary2))]"
+                data-toggle-password="password" aria-pressed="false">
+                Show
+              </button>
+            </div>
+
+            <!-- Example inline error state -->
+            <!-- <p class="fa-error">Password must be at least 8 characters.</p> -->
+          </div>
+
+          <button class="fa-btn-primary w-full" type="submit">
+            Sign in
+          </button>
+
+          <div class="fa-divider">or</div>
+
+          <button class="fa-btn-ghost w-full" type="button">
+            Continue with Google
+          </button>
+
+          <p class="pt-2 text-center text-sm text-[rgb(var(--muted))]">
+            New here?
+            <a href="register-01.html" class="fa-link">Create an account</a>
+          </p>
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-6 flex items-center justify-between text-xs text-[rgb(var(--muted))]">
+        <span>© ForgeAuth UI Kit</span>
+        <button type="button" class="fa-link" data-theme-toggle>Toggle theme</button>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
