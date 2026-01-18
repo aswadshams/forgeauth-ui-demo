@@ -1,5 +1,3 @@
-# forgeauth-ui-demo
-# forgeauth-ui-demo
 # ForgeAuth UI Kit (Demo)
 
 A clean, responsive authentication UI built with **Tailwind CSS**.  
