@@ -3,6 +3,7 @@
 A clean, responsive authentication UI built with **Tailwind CSS**.  
 This repo contains a **free demo** (limited pages) so you can preview layout, responsiveness, and theming.
 
+
 ## ✨ Highlights
 - Tailwind CSS (utility-first)
 - Responsive layout (desktop/tablet/mobile)
@@ -11,8 +12,9 @@ This repo contains a **free demo** (limited pages) so you can preview layout, re
 
 > *Badge theme is available in the full kit.
 
-## 🚀 Live Demo
-- Demo: (add GitHub Pages link here)
+## 🔗 Live Demo
+👉 https://aswadshams.github.io/forgeauth-ui-demo/
+
 
 ## 📄 Pages Included (Demo)
 - `login-01.html` (Classic)
